@@ -31,7 +31,8 @@ addOne(37)
 3. [Fetching nested props](#fetching-nested-props)
 4. [Assertions](#assertions)
 5. [Predicates](#predicates)
-6. [License](#license)
+6. [Issues](#issues)
+7. [License](#license)
 
 # Installation
 ```
@@ -98,6 +99,9 @@ const foo = fetchProp(obj, 'foo', isPositive)
 
 // throws AssertionError: "prop \"foo\" failed the assertion"
 ```
+
+# Issues
+Please feel free to submit issues and feature requests here [here](https://github.com/lilsweetcaligula/fetch-prop/issues).
 
 # License
 MIT License

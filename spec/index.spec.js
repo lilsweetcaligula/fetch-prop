@@ -125,7 +125,7 @@ describe('fetchProp', () => {
         } catch (err) {
           expect(err).toEqual(jasmine.any(Error))
           expect(err).toEqual(jasmine.any(MissingPropError))
-          expect(err.message).toEqual('missing prop: "bar"')
+          expect(err.message).toEqual('"bar"')
 
           return
         }
@@ -187,7 +187,7 @@ describe('fetchProp', () => {
           } catch (err) {
             expect(err).toEqual(jasmine.any(Error))
             expect(err).toEqual(jasmine.any(MissingPropError))
-            expect(err.message).toEqual('missing prop: "abc"')
+            expect(err.message).toEqual('"abc"')
 
             return
           }
@@ -216,7 +216,7 @@ describe('fetchProp', () => {
           } catch (err) {
             expect(err).toEqual(jasmine.any(Error))
             expect(err).toEqual(jasmine.any(MissingPropError))
-            expect(err.message).toEqual('missing prop: "lorem.ipsum.dolor"')
+            expect(err.message).toEqual('"lorem"."ipsum"."dolor"')
 
             return
           }

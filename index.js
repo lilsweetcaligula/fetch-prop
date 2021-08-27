@@ -14,12 +14,10 @@ function fetchProp(obj, prop_or_props, assertType = x => {}) {
     ? prop_or_props
     : [prop_or_props]
 
-  const prop_name = props.join('.')
-
 
   const x = props.reduce((o, prop) => {
     if (!(typeof o === 'object' && prop in o)) {
-      throw new MissingPropError(`missing prop: "${prop_name}"`)
+      throw new MissingPropError(`${propName(props)}`)
     }
 
     return o[prop]
@@ -30,12 +28,17 @@ function fetchProp(obj, prop_or_props, assertType = x => {}) {
 
   if (typeof is_ok === 'boolean' && !is_ok) {
     throw new AssertionError({
-      message: `prop "${prop_name}" failed the assertion`
+      message: `prop ${propName(props)} failed the assertion`
     })
   }
 
 
   return x
+}
+
+
+function propName(props) {
+  return props.map(p => `"${p}"`).join('.')
 }
 
 

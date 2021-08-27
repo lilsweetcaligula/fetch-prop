@@ -1,13 +1,18 @@
 {
   "name": "fetch-prop",
   "version": "1.0.0",
-  "description": "A handy utility to safely extract props from objects",
+  "description": "A handy utility to defensively extract props from objects",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/jasmine/bin/jasmine.js --config=./spec/support/jasmine.json"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "fetchProp", "fetch_prop", "fetch", "prop", "property", "props",
+    "properties", "object", "defensive", "safe", "assert"
+  ],
+  "contributors": [
+  ],
+  "author": "Efim Bogdanovsky (https://github.com/lilsweetcaligula)",
   "license": "MIT",
   "devDependencies": {
     "jasmine": "3.9.0"

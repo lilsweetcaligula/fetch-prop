@@ -2,22 +2,38 @@ const Assert = require('assert')
 const { AssertionError } = Assert
 
 
-function fetchProp(obj, prop, assertType = x => {}) {
+function fetchProp(obj, prop_or_props, assertType = x => {}) {
+  Assert(null != obj && typeof obj === 'object',
+    'The "obj" argument must be an object')
+
   Assert(assertType instanceof Function,
-    'The assertType argument must be a function')
+    'The "assertType" argument must be a function')
 
-  if (!(prop in obj)) {
-    throw new MissingPropError(`missing prop: "${prop}"`)
-  }
 
-  const x = obj[prop]
-  const check = assertType(x)
+  const props = Array.isArray(prop_or_props)
+    ? prop_or_props
+    : [prop_or_props]
 
-  if (typeof check === 'boolean' && !check) {
+  const prop_name = props.join('.')
+
+
+  const x = props.reduce((o, prop) => {
+    if (!(typeof o === 'object' && prop in o)) {
+      throw new MissingPropError(`missing prop: "${prop_name}"`)
+    }
+
+    return o[prop]
+  }, obj)
+
+
+  const is_ok = assertType(x)
+
+  if (typeof is_ok === 'boolean' && !is_ok) {
     throw new AssertionError({
-      message: `prop "${prop}" failed the assertion`
+      message: `prop "${prop_name}" failed the assertion`
     })
   }
+
 
   return x
 }

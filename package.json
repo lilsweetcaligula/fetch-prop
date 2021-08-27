@@ -1,0 +1,15 @@
+{
+  "name": "fetch-prop",
+  "version": "1.0.0",
+  "description": "A handy utility to safely extract props from objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/jasmine/bin/jasmine.js --config=./spec/support/jasmine.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "3.9.0"
+  }
+}
